@@ -1,4 +1,3 @@
-import pygame
 from copy import deepcopy
 from checkers.constants import RED, WHITE
 
@@ -34,7 +33,7 @@ def simulateMove(piece, move, board, game, skip):
 def getMoves(game, board, color):
     moves = []
     for piece in board.getPeicesForColor(color):
-        possibleMoves = board.get_valid_moves(piece) #returns dict (row, col) : peices
+        possibleMoves = board.get_valid_moves(piece)
         for move, skipMove in possibleMoves.items():
             boardTemp = deepcopy(board)
             pieceTemp = boardTemp.get_piece(piece.row, piece.col)
