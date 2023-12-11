@@ -1,6 +1,7 @@
 import pygame
 from .constants import RED, WHITE, BLUE, SQUARE_SIZE
 from checkers.board import Board
+import random
 
 class Game:
     def __init__(self, win):
@@ -59,7 +60,8 @@ class Game:
 
     def change_turn(self):
         self.valid_moves = {}
-        if self.turn == RED:
-            self.turn = WHITE
-        else:
-            self.turn = RED
+        players=[RED, WHITE]
+        dice_roll = random.randint(1, 6) + random.randint(1, 6)
+        player_index = dice_roll % len(players)
+        self.turn = players[player_index]
+        print("Turn", self.turn)

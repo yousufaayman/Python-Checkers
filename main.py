@@ -1,13 +1,11 @@
-# Assets: https://techwithtim.net/wp-content/uploads/2020/09/assets.zip
 import pygame
 from checkers.constants import WIDTH, HEIGHT, SQUARE_SIZE, RED
 from checkers.game import Game
-from minimax.algorithm import minimax
 
 FPS = 60
 
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))
-pygame.display.set_caption('Checkers')
+pygame.display.set_caption('MINIMAX CHECKERS!!')
 
 def get_row_col_from_mouse(pos):
     x, y = pos
@@ -24,7 +22,10 @@ def main():
         clock.tick(FPS)
 
         if game.winner() != None:
-            print(game.winner())
+            if (game.winner() == "(255, 0, 0)"):
+                print("Winner Is Red")
+            else:
+                print("Winner is White")
             run = False
 
         for event in pygame.event.get():
