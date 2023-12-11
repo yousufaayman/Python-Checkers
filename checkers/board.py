@@ -155,3 +155,11 @@ class Board:
         evaluateKingsLeft =  (self.white_kings) - (self.red_kings)
         return evaluatePeicesLeft + evaluateKingsLeft
     
+    #get peices for a specific color
+    def getPeicesForColor(self, color):
+        piecesOfColor = []
+        for row in self.board:
+            for piece in row:
+                if piece !=0 and piece.color == color:
+                    piecesOfColor.append(piece)
+        return piecesOfColor
