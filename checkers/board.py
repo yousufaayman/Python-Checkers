@@ -151,10 +151,8 @@ class Board:
 
     #Added Evaluation code for board to allow AI to select best possible move
     def evalBoard(self):
-        evaluatePeicesLeft = self.white_left - self.red_left
-        evaluateKingsLeft =  (self.white_kings) - (self.red_kings)
-        return evaluatePeicesLeft + evaluateKingsLeft
-    
+         return self.white_left - self.red_left + (self.white_kings * 0.5) - (self.red_kings * 0.5)
+     
     #get peices for a specific color
     def getPeicesForColor(self, color):
         piecesOfColor = []

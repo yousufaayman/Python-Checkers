@@ -1,6 +1,7 @@
 import pygame
-from checkers.constants import WIDTH, HEIGHT, SQUARE_SIZE, RED
+from checkers.constants import WIDTH, HEIGHT, SQUARE_SIZE, RED, WHITE
 from checkers.game import Game
+from computerStrategy.minimax import minimaxAlgorithim
 
 FPS = 60
 
@@ -20,7 +21,11 @@ def main():
 
     while run:
         clock.tick(FPS)
-
+        
+        if game.turn == WHITE:
+            value, new_board = minimaxAlgorithim(3, game.get_board(), game, WHITE)
+            game.computerMove(new_board)
+        
         if game.winner() != None:
             if (game.winner() == "(255, 0, 0)"):
                 print("Winner Is Red")
