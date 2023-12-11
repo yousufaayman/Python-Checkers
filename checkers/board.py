@@ -148,3 +148,10 @@ class Board:
             right += 1
         
         return moves
+
+    #Added Evaluation code for board to allow AI to select best possible move
+    def evalBoard(self):
+        evaluatePeicesLeft = self.white_left - self.red_left
+        evaluateKingsLeft =  (self.white_kings) - (self.red_kings)
+        return evaluatePeicesLeft + evaluateKingsLeft
+    
